@@ -20,10 +20,13 @@ func SetupRouter() *gin.Engine {
 		api.POST("/exchangeRate/create", controllers.CreateExchangeRate)
 		api.GET("/exchangeRate/getById", controllers.GetExchangeRateById)
 	}
-	api.GET("/articles", controllers.GetArticles)
 	{
 		api.POST("/article/create", controllers.CreateArticle)
 		api.GET("/article/getById/:id", controllers.GetArticleById)
+		api.GET("/articles", controllers.GetArticles)
+
+		api.PUT("/article/:id/like", controllers.LikeArticle)
+		api.GET("/article/:id/like", controllers.GetArticleLikes)
 	}
 	return r
 }
